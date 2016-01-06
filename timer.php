@@ -16,7 +16,7 @@ $start = microtime(true);
 
 for($i = 0; $i < 10000; $i++)
 {
-    for($j = 0; $j < 100; $j++)
+    for($j = 0; $j < 200; $j++)
     {
         $fizzBuzz->say($j);
     }
