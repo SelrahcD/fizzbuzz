@@ -4,13 +4,8 @@ namespace SelrahcD\FizzBuzz;
 
 final class FizzSayer implements Sayer
 {
-    public function canHandle($value)
+    public function say($value, $currentSay)
     {
-        return $value % 3 === 0;
-    }
-
-    public function say($value)
-    {
-        return 'Fizz';
+        return $value % 3 === 0 ? 'Fizz' : '';
     }
 }

@@ -2,7 +2,5 @@
 
 interface Sayer
 {
-    public function canHandle($value);
-
-    public function say($value);
+    public function say($value, $currentSay);
 }

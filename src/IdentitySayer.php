@@ -4,13 +4,8 @@ namespace SelrahcD\FizzBuzz;
 
 final class IdentitySayer implements Sayer
 {
-    public function canHandle($value)
+    public function say($value, $currentSay)
     {
-        return true;
-    }
-
-    public function say($value)
-    {
-        return $value;
+        return $currentSay === '' ? $value : '';
     }
 }

@@ -18,8 +18,9 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
         $this->fizzBuzz = new FizzBuzz([
             new FizzSayer,
             new BuzzSayer,
-            new BangSayer
-        ], new IdentitySayer);
+            new BangSayer,
+            new IdentitySayer
+        ]);
     }
 
     /**
