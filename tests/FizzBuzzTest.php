@@ -3,6 +3,7 @@
 use SelrahcD\FizzBuzz\DivisibleSayer;
 use SelrahcD\FizzBuzz\FizzBuzz;
 use SelrahcD\FizzBuzz\IdentitySayer;
+use SelrahcD\FizzBuzz\MemoizeSayer;
 use SelrahcD\FizzBuzz\NullSayer;
 
 class FizzBuzzTest extends PHPUnit_Framework_TestCase
@@ -15,11 +16,13 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->fizzBuzz = new FizzBuzz(
-            new IdentitySayer(
-                new DivisibleSayer(3, 'Fizz',
-                    new DivisibleSayer(5, 'Buzz',
-                        new DivisibleSayer(7, 'Bang',
-                            new NullSayer
+            new MemoizeSayer(
+                new IdentitySayer(
+                    new DivisibleSayer(3, 'Fizz',
+                        new DivisibleSayer(5, 'Buzz',
+                            new DivisibleSayer(7, 'Bang',
+                                new NullSayer
+                            )
                         )
                     )
                 )
