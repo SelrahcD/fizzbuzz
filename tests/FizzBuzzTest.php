@@ -19,8 +19,9 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
         $this->fizzBuzz = new FizzBuzz([
             new DivisibleSayer(3, 'Fizz'),
             new DivisibleSayer(5, 'Buzz'),
-            new DivisibleSayer(7, 'Bang')
-        ], new IdentitySayer);
+            new DivisibleSayer(7, 'Bang'),
+            new IdentitySayer
+        ]);
     }
 
     /**

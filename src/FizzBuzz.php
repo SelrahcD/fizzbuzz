@@ -4,17 +4,14 @@ namespace SelrahcD\FizzBuzz;
 final class FizzBuzz
 {
     private $sayers;
-    private $defaultSayer;
 
     /**
      * FizzBuzz constructor.
      * @param array $sayers
-     * @param Sayer $defaultSayer
      */
-    public function __construct(array $sayers = array(), Sayer $defaultSayer)
+    public function __construct(array $sayers = array())
     {
         $this->sayers = $sayers;
-        $this->defaultSayer = $defaultSayer;
     }
 
     public function say($value)
@@ -26,15 +23,7 @@ final class FizzBuzz
          */
         foreach($this->sayers as $sayer)
         {
-            if($sayer->canHandle($value))
-            {
-                $result .= $sayer->say($value);
-            }
-        }
-
-        if($result === '')
-        {
-            return $this->defaultSayer->say($value);
+            $result .= $sayer->say($value, $result);
         }
 
         return $result;
