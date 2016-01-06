@@ -2,5 +2,5 @@
 
 interface Sayer
 {
-    public function say($value, $currentSay);
+    public function say($value);
 }

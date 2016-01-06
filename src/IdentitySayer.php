@@ -4,8 +4,15 @@ namespace SelrahcD\FizzBuzz;
 
 final class IdentitySayer implements Sayer
 {
-    public function say($value, $currentSay)
+    public function __construct(Sayer $successor)
     {
-        return $currentSay === '' ? $value : '';
+        $this->successor = $successor;
+    }
+
+    public function say($value)
+    {
+        $currentSay = $this->successor->say($value);
+
+        return $currentSay === '' ? $value : $currentSay;
     }
 }

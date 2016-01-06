@@ -2,14 +2,20 @@
 use SelrahcD\FizzBuzz\DivisibleSayer;
 use SelrahcD\FizzBuzz\FizzBuzz;
 use SelrahcD\FizzBuzz\IdentitySayer;
+use SelrahcD\FizzBuzz\NullSayer;
 
 require './vendor/autoload.php';
 
-$fizzBuzz = new FizzBuzz([
-    new DivisibleSayer(3, 'Fizz'),
-    new DivisibleSayer(5, 'Buzz'),
-    new DivisibleSayer(7, 'Bang'),
-    new IdentitySayer]
+$fizzBuzz = new FizzBuzz(
+    new IdentitySayer(
+        new DivisibleSayer(3, 'Fizz',
+            new DivisibleSayer(5, 'Buzz',
+                new DivisibleSayer(7, 'Bang',
+                    new NullSayer
+                )
+            )
+        )
+    )
 );
 
 $start = microtime(true);

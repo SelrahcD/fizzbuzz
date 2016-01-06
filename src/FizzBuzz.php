@@ -3,21 +3,22 @@ namespace SelrahcD\FizzBuzz;
 
 final class FizzBuzz
 {
-    private $sayers;
+    /**
+     * @var Sayer
+     */
+    private $sayer;
 
     /**
      * FizzBuzz constructor.
-     * @param array $sayers
+     * @param Sayer $sayer
      */
-    public function __construct(array $sayers = array())
+    public function __construct(Sayer $sayer)
     {
-        $this->sayers = $sayers;
+        $this->sayer = $sayer;
     }
 
     public function say($value)
     {
-        return array_reduce($this->sayers, function($carry, $sayer) use($value){
-            return $carry . $sayer->say($value, $carry);
-        }, '');
+        return $this->sayer->say($value, '');
     }
 }
