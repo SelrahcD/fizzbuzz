@@ -19,6 +19,6 @@ final class FizzBuzz
 
     public function say($value)
     {
-        return $this->sayer->say($value, '');
+        return $this->sayer->say($value);
     }
 }
