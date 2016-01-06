@@ -26,10 +26,7 @@ final class FizzBuzz
          */
         foreach($this->sayers as $sayer)
         {
-            if($sayer->canHandle($value))
-            {
-                $result .= $sayer->say($value);
-            }
+            $result .= $sayer->say($value);
         }
 
         if($result === '')

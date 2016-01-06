@@ -21,13 +21,8 @@ final class DivisibleSayer implements Sayer
         $this->toSay = $toSay;
     }
 
-    public function canHandle($value)
-    {
-        return $value % $this->divisor === 0;
-    }
-
     public function say($value)
     {
-        return $this->toSay;
+        return $value % $this->divisor === 0 ? $this->toSay : '';
     }
 }
